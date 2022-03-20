@@ -7,10 +7,10 @@ const getSingleArnieQuote = async (url) => {
   try {
     const response = await httpGet(url);
     const { body, status } = response;
-    const message = JSON.parse(body).message;
+    const responseMessage = JSON.parse(body).message;
     const responseKey =
       status === 200 ? [successResponseKey] : [failResponseKey];
-    return { [responseKey]: message };
+    return { [responseKey]: responseMessage };
   } catch ({ message }) {
     console.log(`Error: ${message}`);
   }
